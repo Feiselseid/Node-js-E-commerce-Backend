@@ -1,0 +1,4785 @@
+openapi: 3.0.0
+info:
+  title: test
+  version: 1.0.0
+servers:
+  - url: http://{{url}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+    undefinedAuth:
+      type: http
+tags:
+  - name: admin
+    description: admin APIs
+  - name: admin > product
+    description: product Model APIs
+  - name: admin > Social Login
+    description: Login Through Social Accounts
+  - name: admin > Push Notification
+    description: Push Notification Routes
+  - name: admin > File Upload
+    description: Upload Files
+  - name: admin > user
+    description: user Model APIs
+  - name: admin > login
+    description: admin Login
+  - name: admin > role
+    description: role Model APIs
+  - name: admin > projectRoute
+    description: projectRoute Model APIs
+  - name: admin > routeRole
+    description: routeRole Model APIs
+  - name: admin > userRole
+    description: userRole Model APIs
+  - name: device
+    description: device APIs
+  - name: device > product
+    description: product Model APIs
+  - name: device > Social Login
+    description: Login Through Social Accounts
+  - name: device > Push Notification
+    description: Push Notification Routes
+  - name: device > File Upload
+    description: Upload Files
+  - name: device > login
+    description: device Login
+paths:
+  /admin/product/{id}:
+    get:
+      tags:
+        - admin > product
+      summary: getproduct
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  name: Debra Walsh
+                  price: exploit
+                  description: niches
+                  sellprice: data-warehouse
+                  vendorid: Computers
+                  location: Account
+                  category: impactful
+                  id: 634c0cdc0df450ce13266d84
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-10-04T20:25:51.388Z'
+                  updatedAt: '2023-09-23T01:08:15.400Z'
+  /admin/product/create:
+    post:
+      tags:
+        - admin > product
+      summary: addproduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Debra Walsh
+                price: exploit
+                description: niches
+                sellprice: data-warehouse
+                vendorid: Computers
+                location: Account
+                category: impactful
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  name: Debra Walsh
+                  price: exploit
+                  description: niches
+                  sellprice: data-warehouse
+                  vendorid: Computers
+                  location: Account
+                  category: impactful
+                  id: 634c0cdc0df450ce13266d7e
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-10-04T20:25:51.388Z'
+                  updatedAt: '2023-09-23T01:08:15.400Z'
+  /admin/product/list:
+    post:
+      tags:
+        - admin > product
+      summary: findAllproduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                query: {}
+                options:
+                  select:
+                    - field 1
+                    - field 2
+                  collation: ''
+                  sort: ''
+                  populate: ''
+                  projection: ''
+                  lean: false
+                  leanWithId: true
+                  offset: 0
+                  page: 1
+                  limit: 10
+                  pagination: true
+                  useEstimatedCount: false
+                  useCustomCountFn: false
+                  forceCountFn: false
+                  read: {}
+                  options: {}
+                isCountOnly: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  data:
+                    - name: Debra Walsh
+                      price: exploit
+                      description: niches
+                      sellprice: data-warehouse
+                      vendorid: Computers
+                      location: Account
+                      category: impactful
+                      id: 634c0cdc0df450ce13266d7f
+                      isDeleted: false
+                      isActive: true
+                      createdAt: '2023-10-04T20:25:51.388Z'
+                      updatedAt: '2023-09-23T01:08:15.400Z'
+                  paginator:
+                    itemCount: 1
+                    offset: 0
+                    perPage: 10
+                    pageCount: 1
+                    currentPage: 1
+                    slNo: 1
+                    hasPrevPage: false
+                    hasNextPage: false
+                    prev: null
+                    next: null
+  /admin/product/count:
+    post:
+      tags:
+        - admin > product
+      summary: getproductCount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                where:
+                  isActive: true
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 10
+  /admin/product/addBulk:
+    post:
+      tags:
+        - admin > product
+      summary: insertBulkproduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                data:
+                  - name: Debra Walsh
+                    price: exploit
+                    description: niches
+                    sellprice: data-warehouse
+                    vendorid: Computers
+                    location: Account
+                    category: impactful
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/product/deleteMany:
+    post:
+      tags:
+        - admin > product
+      summary: deleteManyproduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                isWarning: true
+                ids:
+                  - ':id'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/product/softDeleteMany:
+    put:
+      tags:
+        - admin > product
+      summary: softDeleteManyproduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ids:
+                  - ':id'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/product/updateBulk:
+    put:
+      tags:
+        - admin > product
+      summary: updateBulkproduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                filter:
+                  isActive: true
+                data:
+                  isDeleted: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/product/softDelete/{id}:
+    put:
+      tags:
+        - admin > product
+      summary: softDeleteproduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/product/partial-update/{id}:
+    put:
+      tags:
+        - admin > product
+      summary: partialupdateproduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                isActive: true
+                isDeleted: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  name: Debra Walsh
+                  price: exploit
+                  description: niches
+                  sellprice: data-warehouse
+                  vendorid: Computers
+                  location: Account
+                  category: impactful
+                  id: 634c0cdc0df450ce13266d82
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-10-04T20:25:51.388Z'
+                  updatedAt: '2023-09-23T01:08:15.400Z'
+  /admin/product/update/{id}:
+    put:
+      tags:
+        - admin > product
+      summary: updateproduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Debra Walsh
+                price: exploit
+                description: niches
+                sellprice: data-warehouse
+                vendorid: Computers
+                location: Account
+                category: impactful
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  name: Debra Walsh
+                  price: exploit
+                  description: niches
+                  sellprice: data-warehouse
+                  vendorid: Computers
+                  location: Account
+                  category: impactful
+                  id: 634c0cdc0df450ce13266d83
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-10-04T20:25:51.388Z'
+                  updatedAt: '2023-09-23T01:08:15.400Z'
+  /admin/product/delete/{id}:
+    delete:
+      tags:
+        - admin > product
+      summary: deleteproduct
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  Count: 1
+  /admin/auth/login/google:
+    get:
+      tags:
+        - admin > Social Login
+      summary: Social Login through google
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/auth/login/facebook:
+    get:
+      tags:
+        - admin > Social Login
+      summary: Social Login through facebook
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/auth/push-notification/addPlayerId:
+    post:
+      tags:
+        - admin > Push Notification
+      summary: Add Player Id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                userId: 611cbe48fe58009a1603f9f2
+                playerId: xxx12345xxx
+                deviceId: 2001abcdef
+                isActive: true
+                isDeleted: false
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/auth/push-notification/removePlayerId:
+    post:
+      tags:
+        - admin > Push Notification
+      summary: Remove Player Id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                deviceId: 012345abcde
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/upload:
+    post:
+      tags:
+        - admin > File Upload
+      summary: File upload in admin
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                files:
+                  type: string
+                  description: Select file/s to upload
+                  format: binary
+                folder:
+                  type: string
+                  description: Optional, enable to upload file to specific folder
+                  example: Enter foldername
+                fileName:
+                  type: string
+                  description: Optional, enable to give Specific file name to uploaded File
+                  example: Enter fileName
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: multipart/form-data
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  - status: true
+                    path: path to download file
+  /admin/user/{id}:
+    get:
+      tags:
+        - admin > user
+      summary: getuser
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  username: Giovani.Mueller
+                  email: Malvina_Schiller84@yahoo.com
+                  name: Ms. Gertrude Kulas
+                  mobileNo: (598) 639-4126
+                  userType: 1
+                  id: 634c0cdc0df450ce13266d93
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-07-29T06:37:45.230Z'
+                  updatedAt: '2023-03-10T07:29:19.699Z'
+  /admin/user/me:
+    get:
+      tags:
+        - admin > user
+      summary: get loggedin User
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  username: Giovani.Mueller
+                  email: Malvina_Schiller84@yahoo.com
+                  name: Ms. Gertrude Kulas
+                  mobileNo: (598) 639-4126
+                  userType: 1
+                  id: 634c0cdc0df450ce13266d95
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-07-29T06:37:45.230Z'
+                  updatedAt: '2023-03-10T07:29:19.699Z'
+  /admin/user/create:
+    post:
+      tags:
+        - admin > user
+      summary: adduser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: Giovani.Mueller
+                password: M36UGwC2xNTVNLT
+                email: Malvina_Schiller84@yahoo.com
+                name: Ms. Gertrude Kulas
+                mobileNo: (598) 639-4126
+                userType: 1
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  username: Giovani.Mueller
+                  email: Malvina_Schiller84@yahoo.com
+                  name: Ms. Gertrude Kulas
+                  mobileNo: (598) 639-4126
+                  userType: 1
+                  id: 634c0cdc0df450ce13266d8d
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-07-29T06:37:45.230Z'
+                  updatedAt: '2023-03-10T07:29:19.699Z'
+  /admin/user/list:
+    post:
+      tags:
+        - admin > user
+      summary: findAlluser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                query: {}
+                options:
+                  select:
+                    - field 1
+                    - field 2
+                  collation: ''
+                  sort: ''
+                  populate: ''
+                  projection: ''
+                  lean: false
+                  leanWithId: true
+                  offset: 0
+                  page: 1
+                  limit: 10
+                  pagination: true
+                  useEstimatedCount: false
+                  useCustomCountFn: false
+                  forceCountFn: false
+                  read: {}
+                  options: {}
+                isCountOnly: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  data:
+                    - username: Giovani.Mueller
+                      email: Malvina_Schiller84@yahoo.com
+                      name: Ms. Gertrude Kulas
+                      mobileNo: (598) 639-4126
+                      userType: 1
+                      id: 634c0cdc0df450ce13266d8e
+                      isDeleted: false
+                      isActive: true
+                      createdAt: '2023-07-29T06:37:45.230Z'
+                      updatedAt: '2023-03-10T07:29:19.699Z'
+                  paginator:
+                    itemCount: 1
+                    offset: 0
+                    perPage: 10
+                    pageCount: 1
+                    currentPage: 1
+                    slNo: 1
+                    hasPrevPage: false
+                    hasNextPage: false
+                    prev: null
+                    next: null
+  /admin/user/count:
+    post:
+      tags:
+        - admin > user
+      summary: getuserCount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                where:
+                  isActive: true
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 10
+  /admin/user/addBulk:
+    post:
+      tags:
+        - admin > user
+      summary: insertBulkuser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                data:
+                  - username: Giovani.Mueller
+                    password: M36UGwC2xNTVNLT
+                    email: Malvina_Schiller84@yahoo.com
+                    name: Ms. Gertrude Kulas
+                    mobileNo: (598) 639-4126
+                    userType: 1
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/user/deleteMany:
+    post:
+      tags:
+        - admin > user
+      summary: deleteManyuser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                isWarning: true
+                ids:
+                  - ':id'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/user/softDeleteMany:
+    put:
+      tags:
+        - admin > user
+      summary: softDeleteManyuser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ids:
+                  - ':id'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/user/updateBulk:
+    put:
+      tags:
+        - admin > user
+      summary: updateBulkuser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                filter:
+                  isActive: true
+                data:
+                  isDeleted: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/user/softDelete/{id}:
+    put:
+      tags:
+        - admin > user
+      summary: softDeleteuser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/user/partial-update/{id}:
+    put:
+      tags:
+        - admin > user
+      summary: partialupdateuser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                isActive: true
+                isDeleted: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  username: Giovani.Mueller
+                  email: Malvina_Schiller84@yahoo.com
+                  name: Ms. Gertrude Kulas
+                  mobileNo: (598) 639-4126
+                  userType: 1
+                  id: 634c0cdc0df450ce13266d91
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-07-29T06:37:45.230Z'
+                  updatedAt: '2023-03-10T07:29:19.699Z'
+  /admin/user/update/{id}:
+    put:
+      tags:
+        - admin > user
+      summary: updateuser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: Giovani.Mueller
+                password: M36UGwC2xNTVNLT
+                email: Malvina_Schiller84@yahoo.com
+                name: Ms. Gertrude Kulas
+                mobileNo: (598) 639-4126
+                userType: 1
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  username: Giovani.Mueller
+                  email: Malvina_Schiller84@yahoo.com
+                  name: Ms. Gertrude Kulas
+                  mobileNo: (598) 639-4126
+                  userType: 1
+                  id: 634c0cdc0df450ce13266d92
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-07-29T06:37:45.230Z'
+                  updatedAt: '2023-03-10T07:29:19.699Z'
+  /admin/user/update-profile:
+    put:
+      tags:
+        - admin > user
+      summary: updateProfile
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: Giovani.Mueller
+                password: M36UGwC2xNTVNLT
+                email: Malvina_Schiller84@yahoo.com
+                name: Ms. Gertrude Kulas
+                mobileNo: (598) 639-4126
+                userType: 1
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  username: Giovani.Mueller
+                  email: Malvina_Schiller84@yahoo.com
+                  name: Ms. Gertrude Kulas
+                  mobileNo: (598) 639-4126
+                  userType: 1
+                  id: 634c0cdc0df450ce13266d94
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-07-29T06:37:45.230Z'
+                  updatedAt: '2023-03-10T07:29:19.699Z'
+  /admin/user/delete/{id}:
+    delete:
+      tags:
+        - admin > user
+      summary: deleteuser
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  Count: 1
+  /admin/auth/send_login_otp:
+    post:
+      tags:
+        - admin > login
+      summary: Send login OTP in admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: username
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Login Successful
+                data: Please check your email/mobile for OTP
+  /admin/auth/login_with_otp:
+    post:
+      tags:
+        - admin > login
+      summary: Login With OTP in admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: username
+                code: OTP
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Login Successful
+                data:
+                  username: Giovani.Mueller
+                  email: Malvina_Schiller84@yahoo.com
+                  name: Ms. Gertrude Kulas
+                  mobileNo: (598) 639-4126
+                  id: 634c0cdc0df450ce13266d96
+                  _id: 634c0cdc0df450ce13266d96
+                  loginRetryLimit: 0
+                  token: >-
+                    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMWRlZDVjMGFjMjAxMmFjMDI4ODkxZiIsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2MjkzNTEyNzAsImV4cCI6MTYyOTk1MTI3MH0.BJ-WKjNYeFDQ4pn8kfli5gwn6GLz_c3voFht20Agj9k
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2022-11-03T19:34:01.367Z'
+                  updatedAt: '2022-10-20T11:01:41.991Z'
+  /admin/auth/login:
+    post:
+      tags:
+        - admin > login
+      summary: Login in admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: username
+                password: password
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Login Successful
+                data:
+                  username: Giovani.Mueller
+                  email: Malvina_Schiller84@yahoo.com
+                  name: Ms. Gertrude Kulas
+                  mobileNo: (598) 639-4126
+                  id: 634c0cdc0df450ce13266d96
+                  loginRetryLimit: 0
+                  token: >-
+                    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMWRlZDVjMGFjMjAxMmFjMDI4ODkxZiIsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2MjkzNTEyNzAsImV4cCI6MTYyOTk1MTI3MH0.BJ-WKjNYeFDQ4pn8kfli5gwn6GLz_c3voFht20Agj9k
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2022-11-03T19:34:01.367Z'
+                  updatedAt: '2022-10-20T11:01:41.991Z'
+  /admin/auth/register:
+    post:
+      tags:
+        - admin > login
+      summary: Register User in admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: Giovani.Mueller
+                password: M36UGwC2xNTVNLT
+                email: Malvina_Schiller84@yahoo.com
+                name: Ms. Gertrude Kulas
+                mobileNo: (598) 639-4126
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  username: Giovani.Mueller
+                  email: Malvina_Schiller84@yahoo.com
+                  name: Ms. Gertrude Kulas
+                  mobileNo: (598) 639-4126
+                  id: 634c0cdc0df450ce13266d96
+                  loginRetryLimit: 0
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2022-11-03T19:34:01.367Z'
+                  updatedAt: '2022-10-20T11:01:41.991Z'
+  /admin/auth/forgot-password:
+    post:
+      tags:
+        - admin > login
+      summary: Forgot Password in admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: yourmail@gmail.com
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: otp successfully send to your email.
+                data: {}
+  /admin/auth/validate-otp:
+    post:
+      tags:
+        - admin > login
+      summary: Validate OTP in admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                otp: '5898'
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Invalid OTP
+                data: {}
+  /admin/auth/logout:
+    post:
+      tags:
+        - admin > login
+      summary: Logout in admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/user/change-password:
+    put:
+      tags:
+        - admin > login
+      summary: Change Password in admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                oldPassword: OldPassword
+                newPassword: NewPassword
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Password changed successfully
+                data: {}
+  /admin/auth/reset-password:
+    put:
+      tags:
+        - admin > login
+      summary: Reset password in admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                code: '5898'
+                newPassword: yourPassword
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Password reset successfully
+                data: {}
+  /admin/role/{id}:
+    get:
+      tags:
+        - admin > role
+      summary: getrole
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  name: Peggy Cummings III
+                  code: incentivize
+                  weight: 395
+                  id: 634c0cdc0df450ce13266da5
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-08-06T12:45:53.771Z'
+                  updatedAt: '2022-10-22T05:55:16.357Z'
+  /admin/role/create:
+    post:
+      tags:
+        - admin > role
+      summary: addrole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Peggy Cummings III
+                code: incentivize
+                weight: 395
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  name: Peggy Cummings III
+                  code: incentivize
+                  weight: 395
+                  id: 634c0cdc0df450ce13266d9f
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-08-06T12:45:53.771Z'
+                  updatedAt: '2022-10-22T05:55:16.357Z'
+  /admin/role/addBulk:
+    post:
+      tags:
+        - admin > role
+      summary: insertBulkrole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                data:
+                  - name: Peggy Cummings III
+                    code: incentivize
+                    weight: 395
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/role/list:
+    post:
+      tags:
+        - admin > role
+      summary: findAllrole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                query: {}
+                options:
+                  select:
+                    - field 1
+                    - field 2
+                  collation: ''
+                  sort: ''
+                  populate: ''
+                  projection: ''
+                  lean: false
+                  leanWithId: true
+                  offset: 0
+                  page: 1
+                  limit: 10
+                  pagination: true
+                  useEstimatedCount: false
+                  useCustomCountFn: false
+                  forceCountFn: false
+                  read: {}
+                  options: {}
+                isCountOnly: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  data:
+                    - name: Peggy Cummings III
+                      code: incentivize
+                      weight: 395
+                      id: 634c0cdc0df450ce13266da1
+                      isDeleted: false
+                      isActive: true
+                      createdAt: '2023-08-06T12:45:53.771Z'
+                      updatedAt: '2022-10-22T05:55:16.357Z'
+                  paginator:
+                    itemCount: 1
+                    offset: 0
+                    perPage: 10
+                    pageCount: 1
+                    currentPage: 1
+                    slNo: 1
+                    hasPrevPage: false
+                    hasNextPage: false
+                    prev: null
+                    next: null
+  /admin/role/count:
+    post:
+      tags:
+        - admin > role
+      summary: getroleCount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                where:
+                  isActive: true
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 10
+  /admin/role/deleteMany:
+    post:
+      tags:
+        - admin > role
+      summary: deleteManyrole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                isWarning: true
+                ids:
+                  - ':id'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/role/updateBulk:
+    put:
+      tags:
+        - admin > role
+      summary: updateBulkrole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                filter:
+                  isActive: true
+                data:
+                  isDeleted: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/role/softDeleteMany:
+    put:
+      tags:
+        - admin > role
+      summary: softDeleteManyrole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ids:
+                  - ':id'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/role/softDelete/{id}:
+    put:
+      tags:
+        - admin > role
+      summary: softDeleterole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/role/partial-update/{id}:
+    put:
+      tags:
+        - admin > role
+      summary: partialupdaterole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                isActive: true
+                isDeleted: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  name: Peggy Cummings III
+                  code: incentivize
+                  weight: 395
+                  id: 634c0cdc0df450ce13266da3
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-08-06T12:45:53.771Z'
+                  updatedAt: '2022-10-22T05:55:16.357Z'
+  /admin/role/update/{id}:
+    put:
+      tags:
+        - admin > role
+      summary: updaterole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Peggy Cummings III
+                code: incentivize
+                weight: 395
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  name: Peggy Cummings III
+                  code: incentivize
+                  weight: 395
+                  id: 634c0cdc0df450ce13266da4
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-08-06T12:45:53.771Z'
+                  updatedAt: '2022-10-22T05:55:16.357Z'
+  /admin/role/delete/{id}:
+    delete:
+      tags:
+        - admin > role
+      summary: deleterole
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  Count: 1
+  /admin/projectroute/{id}:
+    get:
+      tags:
+        - admin > projectRoute
+      summary: getprojectRoute
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  route_name: Product
+                  method: FTP
+                  uri: Maryland
+                  id: 634c0cdc0df450ce13266dad
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-02-17T20:35:59.779Z'
+                  updatedAt: '2023-04-26T19:06:24.359Z'
+  /admin/projectroute/create:
+    post:
+      tags:
+        - admin > projectRoute
+      summary: addprojectRoute
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                route_name: Product
+                method: FTP
+                uri: Maryland
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  route_name: Product
+                  method: FTP
+                  uri: Maryland
+                  id: 634c0cdc0df450ce13266da7
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-02-17T20:35:59.779Z'
+                  updatedAt: '2023-04-26T19:06:24.359Z'
+  /admin/projectroute/addBulk:
+    post:
+      tags:
+        - admin > projectRoute
+      summary: insertBulkprojectRoute
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                data:
+                  - route_name: Product
+                    method: FTP
+                    uri: Maryland
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/projectroute/list:
+    post:
+      tags:
+        - admin > projectRoute
+      summary: findAllprojectRoute
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                query: {}
+                options:
+                  select:
+                    - field 1
+                    - field 2
+                  collation: ''
+                  sort: ''
+                  populate: ''
+                  projection: ''
+                  lean: false
+                  leanWithId: true
+                  offset: 0
+                  page: 1
+                  limit: 10
+                  pagination: true
+                  useEstimatedCount: false
+                  useCustomCountFn: false
+                  forceCountFn: false
+                  read: {}
+                  options: {}
+                isCountOnly: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  data:
+                    - route_name: Product
+                      method: FTP
+                      uri: Maryland
+                      id: 634c0cdc0df450ce13266da9
+                      isDeleted: false
+                      isActive: true
+                      createdAt: '2023-02-17T20:35:59.779Z'
+                      updatedAt: '2023-04-26T19:06:24.359Z'
+                  paginator:
+                    itemCount: 1
+                    offset: 0
+                    perPage: 10
+                    pageCount: 1
+                    currentPage: 1
+                    slNo: 1
+                    hasPrevPage: false
+                    hasNextPage: false
+                    prev: null
+                    next: null
+  /admin/projectroute/count:
+    post:
+      tags:
+        - admin > projectRoute
+      summary: getprojectRouteCount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                where:
+                  isActive: true
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 10
+  /admin/projectroute/deleteMany:
+    post:
+      tags:
+        - admin > projectRoute
+      summary: deleteManyprojectRoute
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                isWarning: true
+                ids:
+                  - ':id'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/projectroute/updateBulk:
+    put:
+      tags:
+        - admin > projectRoute
+      summary: updateBulkprojectRoute
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                filter:
+                  isActive: true
+                data:
+                  isDeleted: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/projectroute/softDeleteMany:
+    put:
+      tags:
+        - admin > projectRoute
+      summary: softDeleteManyprojectRoute
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ids:
+                  - ':id'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/projectroute/softDelete/{id}:
+    put:
+      tags:
+        - admin > projectRoute
+      summary: softDeleteprojectRoute
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/projectroute/partial-update/{id}:
+    put:
+      tags:
+        - admin > projectRoute
+      summary: partialupdateprojectRoute
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                isActive: true
+                isDeleted: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  route_name: Product
+                  method: FTP
+                  uri: Maryland
+                  id: 634c0cdc0df450ce13266dab
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-02-17T20:35:59.779Z'
+                  updatedAt: '2023-04-26T19:06:24.359Z'
+  /admin/projectroute/update/{id}:
+    put:
+      tags:
+        - admin > projectRoute
+      summary: updateprojectRoute
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                route_name: Product
+                method: FTP
+                uri: Maryland
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  route_name: Product
+                  method: FTP
+                  uri: Maryland
+                  id: 634c0cdc0df450ce13266dac
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-02-17T20:35:59.779Z'
+                  updatedAt: '2023-04-26T19:06:24.359Z'
+  /admin/projectroute/delete/{id}:
+    delete:
+      tags:
+        - admin > projectRoute
+      summary: deleteprojectRoute
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  Count: 1
+  /admin/routerole/{id}:
+    get:
+      tags:
+        - admin > routeRole
+      summary: getrouteRole
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  routeId: 634c0cdc0df450ce13266dae
+                  roleId: 634c0cdc0df450ce13266daf
+                  id: 634c0cdc0df450ce13266db7
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-01-04T17:19:49.118Z'
+                  updatedAt: '2023-07-19T10:41:31.236Z'
+  /admin/routerole/create:
+    post:
+      tags:
+        - admin > routeRole
+      summary: addrouteRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                routeId: 634c0cdc0df450ce13266dae
+                roleId: 634c0cdc0df450ce13266daf
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  routeId: 634c0cdc0df450ce13266dae
+                  roleId: 634c0cdc0df450ce13266daf
+                  id: 634c0cdc0df450ce13266db1
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-01-04T17:19:49.118Z'
+                  updatedAt: '2023-07-19T10:41:31.236Z'
+  /admin/routerole/addBulk:
+    post:
+      tags:
+        - admin > routeRole
+      summary: insertBulkrouteRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                data:
+                  - routeId: 634c0cdc0df450ce13266dae
+                    roleId: 634c0cdc0df450ce13266daf
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/routerole/list:
+    post:
+      tags:
+        - admin > routeRole
+      summary: findAllrouteRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                query: {}
+                options:
+                  select:
+                    - field 1
+                    - field 2
+                  collation: ''
+                  sort: ''
+                  populate: ''
+                  projection: ''
+                  lean: false
+                  leanWithId: true
+                  offset: 0
+                  page: 1
+                  limit: 10
+                  pagination: true
+                  useEstimatedCount: false
+                  useCustomCountFn: false
+                  forceCountFn: false
+                  read: {}
+                  options: {}
+                isCountOnly: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  data:
+                    - routeId: 634c0cdc0df450ce13266dae
+                      roleId: 634c0cdc0df450ce13266daf
+                      id: 634c0cdc0df450ce13266db3
+                      isDeleted: false
+                      isActive: true
+                      createdAt: '2023-01-04T17:19:49.118Z'
+                      updatedAt: '2023-07-19T10:41:31.236Z'
+                  paginator:
+                    itemCount: 1
+                    offset: 0
+                    perPage: 10
+                    pageCount: 1
+                    currentPage: 1
+                    slNo: 1
+                    hasPrevPage: false
+                    hasNextPage: false
+                    prev: null
+                    next: null
+  /admin/routerole/count:
+    post:
+      tags:
+        - admin > routeRole
+      summary: getrouteRoleCount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                where:
+                  isActive: true
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 10
+  /admin/routerole/deleteMany:
+    post:
+      tags:
+        - admin > routeRole
+      summary: deleteManyrouteRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                isWarning: true
+                ids:
+                  - ':id'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/routerole/updateBulk:
+    put:
+      tags:
+        - admin > routeRole
+      summary: updateBulkrouteRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                filter:
+                  isActive: true
+                data:
+                  isDeleted: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/routerole/softDeleteMany:
+    put:
+      tags:
+        - admin > routeRole
+      summary: softDeleteManyrouteRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ids:
+                  - ':id'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/routerole/softDelete/{id}:
+    put:
+      tags:
+        - admin > routeRole
+      summary: softDeleterouteRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/routerole/partial-update/{id}:
+    put:
+      tags:
+        - admin > routeRole
+      summary: partialupdaterouteRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                isActive: true
+                isDeleted: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  routeId: 634c0cdc0df450ce13266dae
+                  roleId: 634c0cdc0df450ce13266daf
+                  id: 634c0cdc0df450ce13266db5
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-01-04T17:19:49.118Z'
+                  updatedAt: '2023-07-19T10:41:31.236Z'
+  /admin/routerole/update/{id}:
+    put:
+      tags:
+        - admin > routeRole
+      summary: updaterouteRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                routeId: 634c0cdc0df450ce13266dae
+                roleId: 634c0cdc0df450ce13266daf
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  routeId: 634c0cdc0df450ce13266dae
+                  roleId: 634c0cdc0df450ce13266daf
+                  id: 634c0cdc0df450ce13266db6
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-01-04T17:19:49.118Z'
+                  updatedAt: '2023-07-19T10:41:31.236Z'
+  /admin/routerole/delete/{id}:
+    delete:
+      tags:
+        - admin > routeRole
+      summary: deleterouteRole
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  Count: 1
+  /admin/userrole/{id}:
+    get:
+      tags:
+        - admin > userRole
+      summary: getuserRole
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  userId: 634c0cdc0df450ce13266db8
+                  roleId: 634c0cdc0df450ce13266db9
+                  id: 634c0cdc0df450ce13266dc1
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2022-11-19T05:23:27.281Z'
+                  updatedAt: '2023-10-10T17:59:42.190Z'
+  /admin/userrole/create:
+    post:
+      tags:
+        - admin > userRole
+      summary: adduserRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                userId: 634c0cdc0df450ce13266db8
+                roleId: 634c0cdc0df450ce13266db9
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  userId: 634c0cdc0df450ce13266db8
+                  roleId: 634c0cdc0df450ce13266db9
+                  id: 634c0cdc0df450ce13266dbb
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2022-11-19T05:23:27.281Z'
+                  updatedAt: '2023-10-10T17:59:42.190Z'
+  /admin/userrole/addBulk:
+    post:
+      tags:
+        - admin > userRole
+      summary: insertBulkuserRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                data:
+                  - userId: 634c0cdc0df450ce13266db8
+                    roleId: 634c0cdc0df450ce13266db9
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/userrole/list:
+    post:
+      tags:
+        - admin > userRole
+      summary: findAlluserRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                query: {}
+                options:
+                  select:
+                    - field 1
+                    - field 2
+                  collation: ''
+                  sort: ''
+                  populate: ''
+                  projection: ''
+                  lean: false
+                  leanWithId: true
+                  offset: 0
+                  page: 1
+                  limit: 10
+                  pagination: true
+                  useEstimatedCount: false
+                  useCustomCountFn: false
+                  forceCountFn: false
+                  read: {}
+                  options: {}
+                isCountOnly: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  data:
+                    - userId: 634c0cdc0df450ce13266db8
+                      roleId: 634c0cdc0df450ce13266db9
+                      id: 634c0cdc0df450ce13266dbd
+                      isDeleted: false
+                      isActive: true
+                      createdAt: '2022-11-19T05:23:27.281Z'
+                      updatedAt: '2023-10-10T17:59:42.190Z'
+                  paginator:
+                    itemCount: 1
+                    offset: 0
+                    perPage: 10
+                    pageCount: 1
+                    currentPage: 1
+                    slNo: 1
+                    hasPrevPage: false
+                    hasNextPage: false
+                    prev: null
+                    next: null
+  /admin/userrole/count:
+    post:
+      tags:
+        - admin > userRole
+      summary: getuserRoleCount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                where:
+                  isActive: true
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 10
+  /admin/userrole/deleteMany:
+    post:
+      tags:
+        - admin > userRole
+      summary: deleteManyuserRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                isWarning: true
+                ids:
+                  - ':id'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/userrole/updateBulk:
+    put:
+      tags:
+        - admin > userRole
+      summary: updateBulkuserRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                filter:
+                  isActive: true
+                data:
+                  isDeleted: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/userrole/softDeleteMany:
+    put:
+      tags:
+        - admin > userRole
+      summary: softDeleteManyuserRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ids:
+                  - ':id'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/userrole/softDelete/{id}:
+    put:
+      tags:
+        - admin > userRole
+      summary: softDeleteuserRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /admin/userrole/partial-update/{id}:
+    put:
+      tags:
+        - admin > userRole
+      summary: partialupdateuserRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                isActive: true
+                isDeleted: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  userId: 634c0cdc0df450ce13266db8
+                  roleId: 634c0cdc0df450ce13266db9
+                  id: 634c0cdc0df450ce13266dbf
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2022-11-19T05:23:27.281Z'
+                  updatedAt: '2023-10-10T17:59:42.190Z'
+  /admin/userrole/update/{id}:
+    put:
+      tags:
+        - admin > userRole
+      summary: updateuserRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                userId: 634c0cdc0df450ce13266db8
+                roleId: 634c0cdc0df450ce13266db9
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  userId: 634c0cdc0df450ce13266db8
+                  roleId: 634c0cdc0df450ce13266db9
+                  id: 634c0cdc0df450ce13266dc0
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2022-11-19T05:23:27.281Z'
+                  updatedAt: '2023-10-10T17:59:42.190Z'
+  /admin/userrole/delete/{id}:
+    delete:
+      tags:
+        - admin > userRole
+      summary: deleteuserRole
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  Count: 1
+  /device/api/v1/product/{id}:
+    get:
+      tags:
+        - device > product
+      summary: getproduct
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  name: Debra Walsh
+                  price: exploit
+                  description: niches
+                  sellprice: data-warehouse
+                  vendorid: Computers
+                  location: Account
+                  category: impactful
+                  id: 634c0cdc0df450ce13266d8b
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-05-22T14:52:26.190Z'
+                  updatedAt: '2023-05-22T05:25:48.597Z'
+  /device/api/v1/product/create:
+    post:
+      tags:
+        - device > product
+      summary: addproduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Debra Walsh
+                price: exploit
+                description: niches
+                sellprice: data-warehouse
+                vendorid: Computers
+                location: Account
+                category: impactful
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  name: Debra Walsh
+                  price: exploit
+                  description: niches
+                  sellprice: data-warehouse
+                  vendorid: Computers
+                  location: Account
+                  category: impactful
+                  id: 634c0cdc0df450ce13266d85
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-05-22T14:52:26.190Z'
+                  updatedAt: '2023-05-22T05:25:48.597Z'
+  /device/api/v1/product/list:
+    post:
+      tags:
+        - device > product
+      summary: findAllproduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                query: {}
+                options:
+                  select:
+                    - field 1
+                    - field 2
+                  collation: ''
+                  sort: ''
+                  populate: ''
+                  projection: ''
+                  lean: false
+                  leanWithId: true
+                  offset: 0
+                  page: 1
+                  limit: 10
+                  pagination: true
+                  useEstimatedCount: false
+                  useCustomCountFn: false
+                  forceCountFn: false
+                  read: {}
+                  options: {}
+                isCountOnly: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  data:
+                    - name: Debra Walsh
+                      price: exploit
+                      description: niches
+                      sellprice: data-warehouse
+                      vendorid: Computers
+                      location: Account
+                      category: impactful
+                      id: 634c0cdc0df450ce13266d86
+                      isDeleted: false
+                      isActive: true
+                      createdAt: '2023-05-22T14:52:26.190Z'
+                      updatedAt: '2023-05-22T05:25:48.597Z'
+                  paginator:
+                    itemCount: 1
+                    offset: 0
+                    perPage: 10
+                    pageCount: 1
+                    currentPage: 1
+                    slNo: 1
+                    hasPrevPage: false
+                    hasNextPage: false
+                    prev: null
+                    next: null
+  /device/api/v1/product/count:
+    post:
+      tags:
+        - device > product
+      summary: getproductCount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                where:
+                  isActive: true
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 10
+  /device/api/v1/product/addBulk:
+    post:
+      tags:
+        - device > product
+      summary: insertBulkproduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                data:
+                  - name: Debra Walsh
+                    price: exploit
+                    description: niches
+                    sellprice: data-warehouse
+                    vendorid: Computers
+                    location: Account
+                    category: impactful
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /device/api/v1/product/deleteMany:
+    post:
+      tags:
+        - device > product
+      summary: deleteManyproduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                isWarning: true
+                ids:
+                  - ':id'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /device/api/v1/product/softDeleteMany:
+    put:
+      tags:
+        - device > product
+      summary: softDeleteManyproduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ids:
+                  - ':id'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /device/api/v1/product/updateBulk:
+    put:
+      tags:
+        - device > product
+      summary: updateBulkproduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                filter:
+                  isActive: true
+                data:
+                  isDeleted: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /device/api/v1/product/softDelete/{id}:
+    put:
+      tags:
+        - device > product
+      summary: softDeleteproduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  count: 2
+  /device/api/v1/product/partial-update/{id}:
+    put:
+      tags:
+        - device > product
+      summary: partialupdateproduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                isActive: true
+                isDeleted: false
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  name: Debra Walsh
+                  price: exploit
+                  description: niches
+                  sellprice: data-warehouse
+                  vendorid: Computers
+                  location: Account
+                  category: impactful
+                  id: 634c0cdc0df450ce13266d89
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-05-22T14:52:26.190Z'
+                  updatedAt: '2023-05-22T05:25:48.597Z'
+  /device/api/v1/product/update/{id}:
+    put:
+      tags:
+        - device > product
+      summary: updateproduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Debra Walsh
+                price: exploit
+                description: niches
+                sellprice: data-warehouse
+                vendorid: Computers
+                location: Account
+                category: impactful
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  name: Debra Walsh
+                  price: exploit
+                  description: niches
+                  sellprice: data-warehouse
+                  vendorid: Computers
+                  location: Account
+                  category: impactful
+                  id: 634c0cdc0df450ce13266d8a
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-05-22T14:52:26.190Z'
+                  updatedAt: '2023-05-22T05:25:48.597Z'
+  /device/api/v1/product/delete/{id}:
+    delete:
+      tags:
+        - device > product
+      summary: deleteproduct
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  Count: 1
+  /device/auth/login/google:
+    get:
+      tags:
+        - device > Social Login
+      summary: Social Login through google
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /device/auth/login/facebook:
+    get:
+      tags:
+        - device > Social Login
+      summary: Social Login through facebook
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /device/auth/push-notification/addPlayerId:
+    post:
+      tags:
+        - device > Push Notification
+      summary: Add Player Id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                userId: 611cbe48fe58009a1603f9f2
+                playerId: xxx12345xxx
+                deviceId: 2001abcdef
+                isActive: true
+                isDeleted: false
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /device/auth/push-notification/removePlayerId:
+    post:
+      tags:
+        - device > Push Notification
+      summary: Remove Player Id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                deviceId: 012345abcde
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /device/api/v1/upload:
+    post:
+      tags:
+        - device > File Upload
+      summary: File upload in device
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                files:
+                  type: string
+                  description: Select file/s to upload
+                  format: binary
+                folder:
+                  type: string
+                  description: Optional, enable to upload file to specific folder
+                  example: Enter foldername
+                fileName:
+                  type: string
+                  description: Optional, enable to give Specific file name to uploaded File
+                  example: Enter fileName
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: multipart/form-data
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  - status: true
+                    path: path to download file
+  /device/auth/send_login_otp:
+    post:
+      tags:
+        - device > login
+      summary: Send login OTP in device
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: username
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Login Successful
+                data: Please check your email/mobile for OTP
+  /device/auth/login_with_otp:
+    post:
+      tags:
+        - device > login
+      summary: Login With OTP in device
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: username
+                code: OTP
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Login Successful
+                data:
+                  username: Giovani.Mueller
+                  email: Malvina_Schiller84@yahoo.com
+                  name: Ms. Gertrude Kulas
+                  mobileNo: (598) 639-4126
+                  id: 634c0cdc0df450ce13266d97
+                  _id: 634c0cdc0df450ce13266d97
+                  loginRetryLimit: 0
+                  token: >-
+                    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMWRlZDVjMGFjMjAxMmFjMDI4ODkxZiIsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2MjkzNTEyNzAsImV4cCI6MTYyOTk1MTI3MH0.BJ-WKjNYeFDQ4pn8kfli5gwn6GLz_c3voFht20Agj9k
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-09-23T10:23:02.618Z'
+                  updatedAt: '2023-07-03T15:18:34.332Z'
+  /device/auth/register:
+    post:
+      tags:
+        - device > login
+      summary: Register User in device
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: Giovani.Mueller
+                password: M36UGwC2xNTVNLT
+                email: Malvina_Schiller84@yahoo.com
+                name: Ms. Gertrude Kulas
+                mobileNo: (598) 639-4126
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Your request is successfully executed
+                data:
+                  username: Giovani.Mueller
+                  email: Malvina_Schiller84@yahoo.com
+                  name: Ms. Gertrude Kulas
+                  mobileNo: (598) 639-4126
+                  id: 634c0cdc0df450ce13266d97
+                  loginRetryLimit: 0
+                  isDeleted: false
+                  isActive: true
+                  createdAt: '2023-09-23T10:23:02.618Z'
+                  updatedAt: '2023-07-03T15:18:34.332Z'
+  /device/auth/logout:
+    post:
+      tags:
+        - device > login
+      summary: Logout in device
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /device/api/v1/user/change-password:
+    put:
+      tags:
+        - device > login
+      summary: Change Password in device
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                oldPassword: OldPassword
+                newPassword: NewPassword
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Password changed successfully
+                data: {}
+  /device/auth/reset-password:
+    put:
+      tags:
+        - device > login
+      summary: Reset password in device
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                code: '5898'
+                newPassword: yourPassword
+      security:
+        - undefinedAuth: []
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: SUCCESS
+                message: Password reset successfully
+                data: {}
